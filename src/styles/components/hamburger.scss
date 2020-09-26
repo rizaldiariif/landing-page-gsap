@@ -1,0 +1,168 @@
+.hamburger-menu {
+  display: none;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+
+  .menu-secondary-background-color {
+    background-color: $black;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .menu-layer {
+    position: relative;
+    background: $red;
+    height: 100%;
+    overflow: hidden;
+
+    .menu-city-background {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation: cameraPan 30s infinite;
+    }
+
+    .container {
+      .menu-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        top: 150px;
+        width: 100%;
+
+        @include media("<=phone") {
+          top: 0px;
+          height: 100%;
+        }
+
+        ul {
+          padding: 0;
+          margin: 0;
+
+          li {
+            list-style: none;
+            font-size: 6rem;
+            font-weight: 700;
+            cursor: pointer;
+            height: 135px;
+            overflow: hidden;
+            position: relative;
+            width: 700px;
+
+            @include media("<=phone") {
+              font-size: 3rem;
+              height: 70px;
+            }
+
+            a {
+              position: absolute;
+              color: #ffffff;
+              text-decoration: none;
+
+              &:hover {
+                color: $black;
+              }
+            }
+          }
+        }
+
+        .info {
+          color: #ffffff;
+          width: 300px;
+
+          @include media("<=phone") {
+            display: none;
+          }
+
+          h3 {
+            font-size: 1.2rem;
+            margin: 8px auto;
+          }
+
+          p {
+            margin: 0 auto;
+            font-size: 0.8rem;
+          }
+        }
+
+        .locations {
+          position: absolute;
+          bottom: -80px;
+          color: #ffffff;
+          margin-top: 16px;
+          font-size: 0.8rem;
+          font-weight: 600;
+
+          @include media("<=phone") {
+            bottom: 30px;
+            // margin-left: 10px;
+          }
+
+          span {
+            &:first-child {
+              margin-left: 64px;
+              @include media("<=phone") {
+                margin-left: 0;
+              }
+            }
+
+            font-weight: 400;
+            cursor: pointer;
+            margin: 0 32px;
+            transition: 0.3s ease-in-out;
+
+            @include media("<=phone") {
+              display: block;
+              margin: 3px 0;
+            }
+
+            &:hover {
+              background: black;
+              padding: 8px 24px;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes cameraPan {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 40% 10%;
+  }
+  50% {
+    background-position: 0% 10%;
+  }
+  75% {
+    background-position: 10% 40%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
